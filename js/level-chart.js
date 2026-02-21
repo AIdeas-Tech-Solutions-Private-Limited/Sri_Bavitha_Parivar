@@ -90,19 +90,7 @@
           }
         },
         datalabels: {
-          anchor: 'end',
-          align: 'top',
-          offset: 2,
-          color: function (context) {
-            return context.dataIndex % 2 === 0 ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0.6)';
-          },
-          font: {
-            size: 11,
-            weight: '700'
-          },
-          formatter: function (value) {
-            return value + '%';
-          }
+          display: false
         }
       },
       animation: {

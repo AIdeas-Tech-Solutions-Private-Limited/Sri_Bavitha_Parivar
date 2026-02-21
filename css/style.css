@@ -121,6 +121,16 @@ h1, h2, h3 {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--space-lg);
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  .section {
+    padding: clamp(2rem, 6vw, 3rem) 0;
+  }
 }
 
 .section {
@@ -399,8 +409,10 @@ h1, h2, h3 {
 }
 
 /* ===== Hero ===== */
+/* Full viewport height minus header so hero + header = one screen */
 .hero {
-  min-height: 60vh;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -437,9 +449,9 @@ h1, h2, h3 {
 }
 .hero-award {
   position: absolute;
-  width: clamp(110px, 20vw, 198px);
+  width: clamp(132px, 24vw, 238px);
   height: auto;
-  max-height: clamp(88px, 15.5vw, 154px);
+  max-height: clamp(106px, 18.6vw, 185px);
   object-fit: cover;
   border-radius: var(--radius);
   border: 2px solid rgba(212, 175, 55, 0.5);
@@ -483,9 +495,19 @@ h1, h2, h3 {
   50% { transform: rotate(-5deg) translateY(-12px); }
 }
 @media (max-width: 640px) {
+  .hero {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-lg) 0;
+  }
+  .hero-title {
+    font-size: clamp(1.65rem, 5vw, 2.25rem);
+  }
+  .hero-tagline {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+  }
   .hero-award {
-    width: clamp(77px, 24vw, 121px);
-    max-height: clamp(62px, 20vw, 97px);
+    width: clamp(92px, 29vw, 145px);
+    max-height: clamp(74px, 24vw, 116px);
     opacity: 0.65;
   }
   .hero-award-tl { top: 8%; left: 2%; }
